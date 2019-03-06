@@ -1,56 +1,12 @@
-import {ADD_POST, ADD_COMMENT} from "../actions/actionTypes"
+import {SET_POSTS, ADD_COMMENT, CREATING_POSTS, POST_CREATED} from "../actions/actionTypes"
 
 const initialState = {
-    posts: [{
-        id: Math.random(),
-        nickname: "Denis Bahia",
-        email: "denis.bahia@aptus.com.br",
-        image: require("../../../assets/imgs/fence.jpg"),
-        comments: [{
-                nickname: "Luciana Pontel",
-                comment: "top !!!"
-            },
-            {
-                nickname: "Lucas Bahia",
-                comment: "ficou feio..."
-            }]
-        },
-        {
-            id: Math.random(),
-            nickname: "Luciana Pontel",
-            email: "luciana.pontel@aptus.com.br",
-            image: require("../../../assets/imgs/bw.jpg"),
-            comments: [{
-                nickname: "Luciana Pontel",
-                comment: "kkkk auh a uha uha a uha uia"
-            },
-            {
-                nickname: "Denis Bahia",
-                comment: " uha hjassasad uhsda sda uysda sda sda ui"
-            },
-            {
-                nickname: "Denis Bahia",
-                comment: " tijiowe 92378934  y894tsef u890us"
-            }]
-        },
-        {
-            id: Math.random(),
-            nickname: "Denolao",
-            email: "blablabla@aptus.com.br",
-            image: require("../../../assets/imgs/boat.jpg"),
-            comments: []
-        }]
+    isUploading: false,
+    posts: []
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
-            return {
-                ...state,
-                posts: state.posts.concat({
-                    ...action.payload
-                })
-            }
         case ADD_COMMENT:
             return {
                 ...state,
@@ -66,6 +22,21 @@ const reducer = (state = initialState, action) => {
                     }
                     return post
                 })
+            }
+        case SET_POSTS:
+            return {
+                ...state,
+                posts: action.payload
+            }
+        case CREATING_POSTS:
+            return {
+                ...state,
+                isUploading: true
+            }
+        case POST_CREATED:
+            return {
+                ...state,
+                isUploading: false
             }
         default:
             return state

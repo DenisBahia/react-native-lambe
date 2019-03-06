@@ -1,0 +1,13 @@
+[debug] [2019-03-02T22:06:11.515Z] ----------------------------------------------------------------------
+[debug] [2019-03-02T22:06:11.518Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\pontelbahia\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-03-02T22:06:11.519Z] CLI Version:   6.4.0
+[debug] [2019-03-02T22:06:11.519Z] Platform:      win32
+[debug] [2019-03-02T22:06:11.519Z] Node Version:  v8.12.0
+[debug] [2019-03-02T22:06:11.520Z] Time:          Sat Mar 02 2019 19:06:11 GMT-0300 (Hora oficial do Brasil)
+[debug] [2019-03-02T22:06:11.520Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-02T22:06:11.537Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-02T22:06:11.539Z] > authorizing via signed-in user
+[debug] [2019-03-02T22:06:11.539Z] [iam] checking project lambe-f9148 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2019-03-02T22:06:11.543Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/lambe-f9148:testIamPermissions  
+
