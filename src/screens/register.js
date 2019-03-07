@@ -4,13 +4,31 @@ import {StyleSheet,
     Text,
     TextInput,
     TouchableOpacity} from "react-native"
+import {connect} from "react-redux"
+import {createUser} from "../store/actions/user"
 
-export default class Register extends Component {
+/*
+import * as firebase from 'firebase'
+import firebaseConfig from "../firebase"
+
+let firebaseApp
+*/
+
+class Register extends Component {
+
     state = {
         name: "",
         email: "",
         password: ""
     }
+
+    /*
+    componentDidMount() {
+        firebaseApp = firebase.initializeApp(firebaseConfig);
+        alert(firebaseApp)
+    }
+    */
+
     render() {
         return (
             <View style={styles.container}>
@@ -24,7 +42,7 @@ export default class Register extends Component {
                     value={this.state.password} secureTextEntry={true}
                     onChangeText={password => this.setState({password})}></TextInput>
                 <TouchableOpacity style={styles.buttom}
-                    onPress={() => {}}>
+                    onPress={() => {this.props.onCreateUser(this.state)}}>
                     <Text style={styles.buttomText}>Salvar</Text>
                 </TouchableOpacity>
             </View>
@@ -57,3 +75,13 @@ const styles = StyleSheet.create({
         color: "#fff"
     }
 })
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onCreateUser: user => {
+            dispatch(createUser(user))
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Register)
